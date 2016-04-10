@@ -1,0 +1,278 @@
+
+
+ <div id="page-container" class="header-navbar-fixed header-navbar-transparent">
+            <!-- Header -->
+            <header id="header-navbar" class="content-mini content-mini-full">
+                <div class="content-boxed">
+                    <!-- Header Navigation Right -->
+                    <ul class="nav-header pull-right">
+                        <li>
+                            <!-- Themes functionality initialized in App() -> uiHandleTheme() -->
+                            <div class="btn-group">
+                                <button class="btn btn-link text-white dropdown-toggle" data-toggle="dropdown" type="button">
+                                    <i class="si si-drop"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right font-s13">
+                                    <li>
+                                        <a data-toggle="theme" data-theme="default" tabindex="-1" href="javascript:void(0)">
+                                            <i class="fa fa-circle text-default pull-right"></i> <span class="font-w600">Default</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="theme" data-theme="assets/css/themes/amethyst.min.css" tabindex="-1" href="javascript:void(0)">
+                                            <i class="fa fa-circle text-amethyst pull-right"></i> <span class="font-w600">Amethyst</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="theme" data-theme="assets/css/themes/city.min.css" tabindex="-1" href="javascript:void(0)">
+                                            <i class="fa fa-circle text-city pull-right"></i> <span class="font-w600">City</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="theme" data-theme="assets/css/themes/flat.min.css" tabindex="-1" href="javascript:void(0)">
+                                            <i class="fa fa-circle text-flat pull-right"></i> <span class="font-w600">Flat</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="theme" data-theme="assets/css/themes/modern.min.css" tabindex="-1" href="javascript:void(0)">
+                                            <i class="fa fa-circle text-modern pull-right"></i> <span class="font-w600">Modern</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="theme" data-theme="assets/css/themes/smooth.min.css" tabindex="-1" href="javascript:void(0)">
+                                            <i class="fa fa-circle text-smooth pull-right"></i> <span class="font-w600">Smooth</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="hidden-md hidden-lg">
+                            <!-- Toggle class helper (for main header navigation below in small screens), functionality initialized in App() -> uiToggleClass() -->
+                            <button class="btn btn-link text-white pull-right" data-toggle="class-toggle" data-target=".js-nav-main-header" data-class="nav-main-header-o" type="button">
+                                <i class="fa fa-navicon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                    <!-- END Header Navigation Right -->
+
+                    <!-- Main Header Navigation -->
+                    <ul class="js-nav-main-header nav-main-header pull-right">
+                        <li class="text-right hidden-md hidden-lg">
+                            <!-- Toggle class helper (for main header navigation in small screens), functionality initialized in App() -> uiToggleClass() -->
+                            <button class="btn btn-link text-white" data-toggle="class-toggle" data-target=".js-nav-main-header" data-class="nav-main-header-o" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <a class="active" href="#/{{current_user}}/home">Home</a>
+                        </li>
+                        <!-- <li>
+                            <a class="nav-submenu" href="javascript:void(0)">Dropdown</a>
+                            <ul>
+                                <li>
+                                    <a href="javascript:void(0)">Page</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Page</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">Page</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                        <li>
+                            <a href="javascript:void(0)">{{current_user}}</a>
+                        </li>
+                        <li>
+                            <a  href="#/" ng-click="signout()" ng-show="authenticated"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- END Main Header Navigation -->
+
+                    <!-- Header Navigation Left -->
+                    <ul class="nav-header pull-left">
+                        <li class="header-content">
+                            <a class="h5 text-white" href="#/{{current_user}}/home">
+                               Smarky
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- END Header Navigation Left -->
+                </div>
+            </header>
+            <!-- END Header -->
+
+            <!-- Main Container -->
+            <main id="main-container">
+                <!-- Hero Content -->
+                <div class="bg-primary-dark-op">
+                    <section class="content content-full content-boxed overflow-hidden">
+                        <!-- Section Content -->
+                        <div class="push-100-t push-50 text-center">
+                            <h1 class="h2 text-white push-10">Details</h1>
+                        </div>
+                        <!-- END Section Content -->
+                    </section>
+                </div>
+                <!-- END Hero Content -->
+
+                <!-- Content -->
+                <div class="bg-white">
+                    <section class="content content-boxed">
+                        <!-- Section Content -->
+                       <div class="container">
+                        <div class="clearfix">
+                     
+                       <section ng-init="tab =1">
+   <ul class="nav nav-tabs" id="btabs">
+      <li ng-class="{active:tab === 1}">
+         <a href ng-click="tab = 1">Questions</a>
+      </li>
+      <li ng-class="{active:tab === 2}">
+         <a href ng-click="tab = 2">summaries</a>
+      </li>
+      <li ng-class="{active:tab === 3}">
+         <a href ng-click="tab = 3">links</a>
+      </li>
+      <li ng-class="{active:tab === 4}">
+         <a href ng-click="tab = 4">Discusion Board</a>
+      </li>
+   </ul>
+   <div  ng-show="tab === 1" ng-controller= "questionController">
+      <div class="clearfix">
+         <div class="big">
+            <center>
+               <h2>Questions</h2>
+            </center>
+         </div>
+         <div class="questions">
+            <ul ng-repeat="data in questionData track by $index" >
+               <li class={{data.id}} >
+                  <h3><a style="color: black;" href="#/{{current_user}}/home/{{bookIsbn}}/{{data.edition}}/{{data.pagenumber}}/questions/{{data.id}}">{{data.question}}</a></h3>
+                  <small style="color: black;">Page:{{data.pagenumber}} &nbsp; Edition:{{data.edition}}</small>
+                  <small  style="color: black;"class="pull-right">Created at : {{data.createdat | date:"h:mma 'on' MMM d, y"}} </small>
+               </li>
+               <hr>
+            </ul>
+            <form ng-Submit="createq()">
+            <textarea required class="form-control" ng-model = "admin_answer.question" maxlength="200" rows="3" placeholder="Write an Question"></textarea>
+            <input class="btn btn-primary pull-right " type="submit" value="Submit!" id="sub" />
+         </form>
+         </div>
+      </div>
+   </div>
+   </div>
+   <div  ng-show="tab === 2" ng-controller= "summaryController">
+         <div class="clearfix">
+            <div id="post-stream">
+              <center>
+              <h2>Summaries</h2>
+              </center>
+               <div  ng-repeat="data in summaryData">
+                  <div>
+                     <h4 style="color: black;">{{data.summary}}</h4>
+                     <small style="color: black;" class="pull-right">Created at : {{data.createdat | date:"h:mma 'on' MMM d, y"}} </small>
+                     <hr>
+                  </div>
+               </div>
+            </div>
+            <form ng-Submit="create()">
+               <textarea required class="form-control" ng-model = "summary.answer"  maxlength="200" rows="3" placeholder="Write an Summary"></textarea>
+               <input class="btn btn-primary pull-right " type="submit" value="Submit!" id="sub" />
+            </form>
+         </div>
+   </div>
+   <div  ng-show="tab === 3" ng-controller="linkController">
+
+   <div class="clearfix">
+            <div id="post-stream">
+               <h2>Links</h2>
+               <div  ng-repeat="data in linkData">
+                  <div>
+                     <a href="http://{{data.link}}" TARGET="_self">{{data.link}}</a>
+                     <small class="pull-right">Created at : {{data.createdat | date:"h:mma 'on' MMM d, y"}} </small>
+                     <hr>
+                  </div>
+               </div>
+            </div>
+            <form ng-Submit="create()">
+               <textarea required class="form-control" ng-model = "link.answer"  maxlength="200" rows="3" placeholder="Write a Link"></textarea>
+               <input class="btn btn-primary pull-right " type="submit" value="Submit!" id="sub" />
+            </form>
+         </div>
+
+     </div>
+   <div  ng-show="tab === 4" ng-controller="discController">
+      <div class="clearfix">
+         <div class="big">
+            <center>
+               <h2>Discussion Board</h2>
+            </center>
+         </div>
+         <div class="questions">
+            <ul ng-repeat="data in discData track by $index">
+               <li class={{data.id}}>
+                  <h3><a style="color: black;"href="#/{{current_user}}/home/{{bookIsbn}}/{{data.edition}}/{{data.pagenumber}}/discussion/{{data.id}}">{{data.question}}</a></h3>
+                  <small style="color: black;">Page:{{data.pagenumber}} &nbsp; Edition:{{data.edition}}</small>
+                  <small style="color: black;" class="pull-right">Created at : {{data.createdat | date:"h:mma 'on' MMM d, y"}} </small>
+               </li>
+               <hr>
+            </ul>
+         </div>
+      </div>
+   </div>
+   </div>
+</section>
+</div>
+
+
+                        </div>
+                  </div>
+                        <!-- END Section Content -->
+                    </section>
+                </div>
+
+                <!-- END Content -->
+
+                
+            </main>
+            <!-- END Main Container -->
+
+            <!-- Footer -->
+            <footer id="page-footer" class="bg-white">
+                <div class="content content-boxed">
+                    <!-- Footer Navigation -->
+                    <div class="row push-30-t items-push-2x">
+                        <div class="col-sm-4">
+                            <h3 class="h5 font-w600 push-20">Android App</h3>
+                            <ul class="list list-simple-mini font-s13">
+                                <li>
+                                    <a class="font-w600" href="javascript:void(0)">Click here!</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 pull-right">
+                            <h3 class="h5 font-w600  push-20">Made by</h3>
+                            <div class="font-s13 push">
+                                <strong>German University in Cairo.</strong><br>
+                            </div>
+                            <div class="font-s13">
+                                <i class="si si-envelope-open"></i> m.ayman854@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Footer Navigation -->
+
+                    <!-- Copyright Info -->
+                    <div class="font-s12 push-20 clearfix">
+                        <hr class="remove-margin-t">
+                        
+                    </div><div class="pull-left">
+                            <a class="font-w600" href="http://goo.gl/6LF10W" target="_blank">Copyrights</a> &copy; <span class="js-year-copy"></span>
+                        </div>
+                    <!-- END Copyright Info -->
+                </div>
+            </footer>
+            <!-- END Footer -->
+        </div>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Question-1</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+      <script src="../javascripts/task2app.js"></script>
+
+      <!-- <script src="javascripts/test.js"></script> -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+      <link rel="stylesheet" href="../stylesheets/q1.css">
+   </head>
+   <body ng-app="task2app">
+      <nav class="navbar navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>                        
+               </button>
+               <a class="navbar-brand" href="../home.html">The Nfc Book</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav navbar-nav">
+                  <li><a href="../qanda.html"  class="active">Question and Answers</a></li>
+                  <li><a href="../summary.html">Summaries</a></li>
+                  <li><a href="../discussion.html">Discussion Board</a></li>
+               </ul>
+               <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Logged in as:</a></li>
+                  <li><a href="../login.html"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="container">
+         <div class="question">
+            <div class="question-title">
+               <h1>What did you eat today?</h1>
+               <hr>
+            </div>
+            <div class="q-details">
+               <p> 
+                  I'm using this https://github.com/damog/www-tumblr Module to manage some of my bigger Tumblr Accounts.
+                  Everything is working greate, but now i want to add more then just 3 Tumblr Accounts and manage them trought the Tumblr Api, because managing every Account on his own will cost me about 2 Hours every Day.
+                  Tumblr don't allow multiple accounts so i would like to use some http proxy to hide the requests.
+                  How can i add Proxy Support to this Module http://search.cpan.org/~damog/WWW-Tumblr-5.00/lib/WWW/Tumblr.pm
+                  Hope someone can help me. Kind regards.
+               </p>
+            </div>
+         </div>
+         <div class="answers">
+            <div class="answers-title">
+               <h3>Answers</h3>
+            </div>
+            <hr>
+            <div id='main' ng-controller="mainController">
+                <div class="clearfix">
+        
+                <div id="post-stream">
+                <div class="post" ng-repeat="post in posts | orderBy:'created_at':true"> 
+                  <p>{{post.text}}</p>
+                <small class="pull-right">{{post.created_at | date:"h:mma 'on' MMM d, y"}}</small>
+                </div>
+          </div>
+          <form ng-Submit="post()">
+            <textarea required class="form-control" maxlength="200" rows="3" placeholder="Write an Answer" ng-model="newPost.text"></textarea>
+            <input class="btn submit-btn pull-right" type="submit" value="Submit!" id="sub" />
+          </form>
+        </div>
+    </div>
+         </div>
+      </div>
+   </body>
+</html>
