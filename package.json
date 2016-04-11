@@ -1,9 +1,13 @@
 {
-  "name": "task3app",
-  "version": "0.0.0",
+  "name": "Smarky",
+  "version": "1.0.0",
+  "author": "Mohamed Ayman",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
+  },
+  "engines": {
+    "node": "4.1.1"
   },
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -13,9 +17,11 @@
     "debug": "~2.2.0",
     "ejs": "~2.3.3",
     "express": "~4.13.1",
+    "express-flash": "0.0.2",
     "express-session": "^1.13.0",
     "morgan": "~1.6.1",
     "parse": "^1.8.1",
+    "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pg": "^4.5.1",
     "pg-hstore": "^2.3.2",
