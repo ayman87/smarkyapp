@@ -42,6 +42,9 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
     	templateUrl: 'serway.html',
     	controller: 'pageController'
       })
+       .when('/:name/aboutus', {
+        templateUrl: 'about.html'
+      })
        .when('/:name/home/:bookIsbn/:edition/:pagenumber/discussion/:idques', {
         templateUrl: 'discussion.html',
         controller: 'discqandaController'
@@ -391,7 +394,7 @@ $http.put('api/testqa/'+$scope.bookIsbn+'/'+$scope.pagenumber+'/'+$scope.idques,
     .success(function(data) {
         $scope.answer = data;
         $scope.admin_answer = {};
-        $scope.qandaData=data;
+        $scope.qandaData = data;
         console.log(data);
         if(localStorage.getItem("auth") == 'false')
         {

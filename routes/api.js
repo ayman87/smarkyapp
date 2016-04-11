@@ -589,7 +589,7 @@ router.put('/testqa/:bookIsbn/:pagenumber/:idques',isAuthenticated, function(req
         client.query("UPDATE admin_answers SET answer=($1) WHERE isbn=($2) and pagenumber=($3) and id=($4)", [data.answer,isbn,pn,idques]);
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM admin_answers WHERE pagenumber=($1) ORDER BY id ASC;",[pn]);
+        var query = client.query("SELECT * FROM admin_answers WHERE pagenumber=($1) and id=($2) ORDER BY id ASC;",[pn,idques]);
 
         // Stream results back one row at a time
         query.on('row', function(row) {
