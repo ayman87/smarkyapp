@@ -133,14 +133,12 @@ $http.post('api/testdqa/'+$scope.name+'/'+$scope.bookIsbn+'/'+$scope.edition+'/'
     .success(function(data) {
         $scope.answer = data;
         $scope.answers = {};
+        $scope.discaData=data;
         console.log(data);
         if(localStorage.getItem("auth") == 'false')
         {
             alert("You must login to view this page");
                 $location.path('/');
-        }else
-        {
-            $route.reload();
         }
     })
     .error(function(error) {
@@ -253,17 +251,13 @@ $(document).ready(function() {
                     // $scope.answer = data;
 
                         $scope.userid = $rootScope.current_user;
-                        alert($scope.userid+' : asasa');
                         $scope.link = {};
-
+                        $scope.linkData=data;
                     console.log(data);
                     if(localStorage.getItem("auth") == 'false')
                     {
                         alert("You must login to view this page");
                             $location.path('/');
-                    }
-                    else{
-                        $route.reload();
                     }
                 })
                 .error(function(error) {
@@ -313,16 +307,14 @@ $(document).ready(function() {
                     // $scope.answer = data;
 
                         $scope.userid = $rootScope.current_user;
-                        $scope.summary = {};
+                        $scope.summary = {}
+                        $scope.summaryData = data;
 
-                    console.log(data);
+                    console.log("SUMMARY DATA: ", data);
                     if(localStorage.getItem("auth") == 'false')
                     {
                         alert("You must login to view this page");
                             $location.path('/');
-                    }
-                    else{
-                        $route.reload();
                     }
                 })
                 .error(function(error) {
@@ -365,15 +357,12 @@ $(document).ready(function() {
             $http.post('api/testq/'+$scope.name+'/'+$scope.bookIsbn+'/'+$scope.edition+'/'+$scope.pagenumber, $scope.admin_answer )
                 .success(function(data) {
                         $scope.admin_answer = {};
-
+                        $scope.questionData=data;
                     console.log(data);
                     if(localStorage.getItem("auth") == 'false')
                     {
                         alert("You must login to view this page");
                             $location.path('/');
-                    }
-                    else{
-                        $route.reload();
                     }
                 })
                 .error(function(error) {
@@ -402,14 +391,12 @@ $http.put('api/testqa/'+$scope.bookIsbn+'/'+$scope.pagenumber+'/'+$scope.idques,
     .success(function(data) {
         $scope.answer = data;
         $scope.admin_answer = {};
+        $scope.qandaData=data;
         console.log(data);
         if(localStorage.getItem("auth") == 'false')
         {
             alert("You must login to view this page");
                 $location.path('/');
-        }else
-        {
-            $route.reload();
         }
     })
     .error(function(error) {
