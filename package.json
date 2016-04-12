@@ -1,5 +1,5 @@
 {
-  "name": "Smarky",
+  "name": "v1",
   "version": "1.0.0",
   "author": "Mohamed Ayman",
   "private": true,
@@ -7,7 +7,7 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "node": "4.1.1"
+    "node": "5.10.1"
   },
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -27,5 +27,17 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.19.3",
     "serve-favicon": "~2.3.0"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayman87/smarky.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayman87/smarky/issues"
+  },
+  "homepage": "https://github.com/ayman87/smarky#readme"
 }
