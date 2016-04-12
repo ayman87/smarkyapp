@@ -1,5 +1,5 @@
 var pg = require('pg');
-var connectionString = process.env.DATABASE_URL ;
+var connectionString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
 
 var client = new pg.Client(connectionString);
 client.connect();

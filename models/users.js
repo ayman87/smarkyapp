@@ -1,5 +1,5 @@
 var pg = require('pg');
-var connectionString = process.env.DATABASE_URL;
+var connectionString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
 
 var client = new pg.Client(connectionString);
 client.connect();
@@ -12,7 +12,7 @@ function User(){
     this.password= ""; //need to declare the things that i want to be remembered for each user in the database
 
     this.save = function(callback) {
-        var conString = "postgres://localhost:5432/nfcbookdb";
+        var conString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
 
         var client = new pg.Client(conString);
         client.connect();
@@ -69,7 +69,7 @@ function User(){
 
 
 User.findOne = function(email, callback){
-    var conString = "postgres://localhost:5432/nfcbookdb";
+    var conString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
     var client = new pg.Client(conString);
 
     var isNotAvailable = false; //we are assuming the email is taking
@@ -118,7 +118,7 @@ User.findOne = function(email, callback){
 
 User.findById = function(id, callback){
     console.log("we are in findbyid");
-    var conString = "postgres://localhost:5432/nfcbookdb";
+    var conString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
     var client = new pg.Client(conString);
 
     client.connect();

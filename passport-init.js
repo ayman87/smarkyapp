@@ -2,7 +2,7 @@ var LocalStrategy   = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 var pg = require('pg');
 var User = require('./models/users');
-var connectionString = process.env.DATABASE_URL;
+var connectionString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
 module.exports = function(passport){
 
     // Passport needs to be able to serialize and deserialize users to support persistent login sessions
