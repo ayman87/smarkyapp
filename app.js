@@ -14,7 +14,7 @@ var authenticate = require('./routes/authenticate')(passport);
 
 
 var pg = require('pg'); 
-var connectionString = process.env.DATABASE_URL || 'postgres://localhost:5432/nfcbookdb';
+var connectionString = process.env.DATABASE_URL ;
 
 var app = express();
 
