@@ -199,7 +199,7 @@
                </div>
             </div>
             <form ng-Submit="create()">
-               <textarea required class="form-control" ng-model = "link.answer"  maxlength="200" rows="3" placeholder="Write a Link"></textarea>
+               <textarea ng-required="true" class="form-control" ng-model = "link.answer"  maxlength="200" rows="3" placeholder="Write a Link"></textarea>
                <input class="btn btn-primary pull-right " type="submit" value="Submit!" id="sub" />
             </form>
          </div>

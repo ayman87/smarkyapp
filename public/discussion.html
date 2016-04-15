@@ -147,7 +147,7 @@
                                  <hr>
                               </div>
                               <form ng-Submit="create()">
-                                 <textarea required class="form-control" ng-model = "answers.answer" maxlength="200" rows="3" placeholder="Write an Answer"></textarea>
+                                 <textarea class="form-control" ng-model = "answers.answer" maxlength="200" rows="3" placeholder="Write an Answer" ng-required="true" ></textarea>
                                  <input class="btn btn-primary pull-right " type="submit" value="Submit!" id="sub" />
                               </form>
                            </div>
