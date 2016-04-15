@@ -136,6 +136,7 @@ User.findById = function(id, callback){
             user.password = result.rows[0]['password'];
             user.id = result.rows[0]['id'];
             console.log(user.email);
+            client.end();
             return callback(null, user);
         }
     });

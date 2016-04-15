@@ -52,6 +52,7 @@ router.get('/test', function(req, res) {
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -95,6 +96,7 @@ router.post('/testq/:name/:bookIsbn/:edition/:pagenumber', isAuthenticated, func
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -138,6 +140,7 @@ router.post('/testdqa/:name/:bookIsbn/:edition/:pagenumber/:idques',isAuthentica
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -171,6 +174,7 @@ router.get('/testdqa/:bookIsbn/:edition/:pagenumber/:idques',isAuthenticated,fun
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -205,6 +209,7 @@ router.get('/testda/:bookIsbn/:edition/:pagenumber/:idques',isAuthenticated,func
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -237,6 +242,7 @@ router.get('/testq/:book_isbn/:pagenumber', isAuthenticated, function(req, res) 
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -269,6 +275,7 @@ router.get('/testd/:book_isbn/:edition/:pagenumber', isAuthenticated, function(r
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -302,6 +309,7 @@ router.get('/testl/:book_isbn/:edition/:pagenumber',isAuthenticated, function(re
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -335,6 +343,7 @@ router.get('/tests/:bookIsbn/:edition/:pagenumber',isAuthenticated, function(req
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -378,6 +387,7 @@ router.post('/testl/:name/:bookIsbn/:edition/:pagenumber',isAuthenticated, funct
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -420,6 +430,7 @@ router.post('/tests/:name/:bookIsbn/:edition/:pagenumber', isAuthenticated,funct
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -449,6 +460,7 @@ router.get('/testb', isAuthenticated ,function(req, res) {
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -483,6 +495,7 @@ router.get('/testp/:bookIsbn/:edition', isAuthenticated,function(req, res) {
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -517,6 +530,7 @@ router.get('/testqa/:bookIsbn/:pagenumber/:idques', isAuthenticated,function(req
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -559,6 +573,7 @@ router.put('/test/:user_id', isAuthenticated,function(req, res) {
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -598,6 +613,7 @@ router.put('/testqa/:bookIsbn/:pagenumber/:idques',isAuthenticated, function(req
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
@@ -635,11 +651,13 @@ router.delete('/test/:user_id',isAuthenticated, function(req, res) {
 
         // After all data is returned, close connection and return results
         query.on('end', function() {
+            client.end();
             done();
             return res.json(results);
         });
     });
 
 });
+
 
 module.exports = router;

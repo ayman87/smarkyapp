@@ -2,7 +2,6 @@ var LocalStrategy   = require('passport-local').Strategy;
 var bCrypt = require('bcrypt-nodejs');
 var pg = require('pg');
 var User = require('./models/users');
-var connectionString = process.env.DATABASE_URL || "postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
 module.exports = function(passport){
 
     // Passport needs to be able to serialize and deserialize users to support persistent login sessions
@@ -34,13 +33,13 @@ module.exports = function(passport){
                         return done(err);
                     // Username does not exist, log the error and redirect back
                     if (user.rows == null){
-                        req.flash('error', 'No user found.');
-                        return done(err, false); // req.flash is the way to set flashdata using connect-flash         
+                        console.log('error', 'No user found.');
+                        return done(err, false); // console.log is the way to set flashdata using connect-flash         
                     }
                     // User exists but wrong password, log the error 
                     if (!isValidPassword(user.rows[0],password))
                     {
-                        req.flash('error', 'Oops! Wrong password.');
+                        console.log('error', 'Oops! Wrong password.');
                         return done(err, false); // create the loginMessage and save it to session as flashdata
                     }
                     console.log("heeeeh");
@@ -70,7 +69,7 @@ module.exports = function(passport){
                 }
                 // already exists
                  if (isNotAvailable == true) {
-                        req.flash('signupMessage', 'That email is already taken.');
+                        console.log('signupMessage', 'That email is already taken.');
                         return done(null, false);
                     } else {
                         console.log('new local user');
