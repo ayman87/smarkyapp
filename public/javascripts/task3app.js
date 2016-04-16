@@ -250,6 +250,7 @@ $(document).ready(function() {
          $scope.create = function(){
             if ($scope.link.answer == "") {
                         alert("This field cannot be empty");
+                        return;
                     }
             $http.post('api/testl/'+$scope.name+'/'+$scope.bookIsbn+'/'+$scope.edition+'/'+$scope.pagenumber, $scope.link , $scope.userid)
                 .success(function(data) {
