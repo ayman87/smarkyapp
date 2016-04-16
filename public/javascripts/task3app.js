@@ -248,17 +248,18 @@ $(document).ready(function() {
 
 
          $scope.create = function(){
+            if ($scope.link.answer == "") {
+                        alert("This field cannot be empty");
+                    }
             $http.post('api/testl/'+$scope.name+'/'+$scope.bookIsbn+'/'+$scope.edition+'/'+$scope.pagenumber, $scope.link , $scope.userid)
                 .success(function(data) {
                     $rootScope.current_user = localStorage.getItem("name");
                     // $scope.answer = data;
-                    if ($scope.link.answer == "null") {
-                        alert("This field cannot be empty");
-                    }else{
+                    
                         $scope.userid = $rootScope.current_user;
                         $scope.link = {};
                         $scope.linkData=data;
-                    }
+
                     console.log(data);
                     if(localStorage.getItem("auth") == 'false')
                     {
