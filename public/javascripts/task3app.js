@@ -15,6 +15,8 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
         $rootScope.current_user = "";
         $rootScope.show=false;
         $rootScope.done=false;
+        $rootScope.admin=false;
+        $rootScope.done=false;
         localStorage.setItem("name",$rootScope.current_user);
         localStorage.setItem("auth",$rootScope.authenticated);
         $location.path('/');
@@ -69,10 +71,10 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
     	templateUrl: 'questions.html',
     	controller: 'qandaController'
       });
-       // .otherwise({
-       //  redirectTo: '/'
+        .otherwise({
+        redirectTo: '/'
 
-       // });
+       });
 }]);
 
 app.controller('mainController', function($scope,$http){
@@ -526,7 +528,7 @@ app.controller('authController', function($scope,$http,$rootScope,$location){
                 $rootScope.show=true;
                 $rootScope.errorMessage="Wrong email or password ! ";
             }
-            if ($scope.user.email == "admin@guc.com") {
+            else if ($scope.user.email == "admin@guc.com") {
                 $rootScope.admin= true;
                 $rootScope.authenticated = true;
                 $rootScope.current_user = data.user.name; 
