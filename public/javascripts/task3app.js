@@ -512,6 +512,7 @@ app.controller('authController', function($scope,$http,$rootScope,$location){
                 alert("You must login to view this page");
                 $location.path('/');
             }
+            else{
         $rootScope.authenticated = true;
         $rootScope.done=true;
         $rootScope.successMessage="Successfully resgistered! ";
@@ -519,6 +520,7 @@ app.controller('authController', function($scope,$http,$rootScope,$location){
         localStorage.setItem("name",$rootScope.current_user);
         localStorage.setItem("auth",$rootScope.authenticated);
         $location.path($rootScope.current_user+'/home');
+    }
        });
 };
 	$scope.login = function(){
