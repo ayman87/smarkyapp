@@ -70,11 +70,11 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
        .when('/:name/home/:bookIsbn/:edition/:pagenumber/questions/:idques', {
     	templateUrl: 'questions.html',
     	controller: 'qandaController'
-      });
+      })
         .otherwise({
         redirectTo: '/'
 
-       });
+      });
 }]);
 
 app.controller('mainController', function($scope,$http){
