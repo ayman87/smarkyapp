@@ -505,6 +505,11 @@ app.controller('authController', function($scope,$http,$rootScope,$location){
 
        $http.post('/auth/signup',$scope.user)
        .success(function(data){
+        if(localStorage.getItem("auth") == 'false')
+            {   
+                alert("You must login to view this page");
+                $location.path('/');
+            }
         $rootScope.authenticated = true;
         $rootScope.done=true;
         $rootScope.successMessage="Successfully resgistered! ";
