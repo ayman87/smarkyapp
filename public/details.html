@@ -152,7 +152,7 @@
             <ul ng-repeat="data in questionData track by $index" >
                <li class={{data.id}} >
                   <h3><a style="color: black;" href="#/{{current_user}}/home/{{bookIsbn}}/{{data.edition}}/{{data.pagenumber}}/questions/{{data.id}}">{{data.question}}</a></h3>
-                  <small style="color: black;">Page:{{data.pagenumber}} &nbsp; Edition:{{data.edition}}</small>
+                  <small style="color: black;">Section:{{data.pagenumber}} &nbsp; Edition:{{data.edition}}</small>
                   <small  style="color: black;"class="pull-right">Created at : {{data.createdat | date:"h:mma 'on' MMM d, y"}} </small>
                </li>
                <hr>
