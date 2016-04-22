@@ -111,7 +111,7 @@
                     <section class="content content-full content-boxed overflow-hidden">
                         <!-- Section Content -->
                         <div class="push-100-t push-50 text-center">
-                            <h1 class="h2 text-white push-10">Choose a Page</h1>
+                            <h1 class="h2 text-white push-10">Choose a Section</h1>
                         </div>
                         <!-- END Section Content -->
                     </section>
@@ -133,10 +133,10 @@
 							         </a>
 							      </div>
 							   </div> -->
-							<div class="col-lg-3" ng-repeat="data in pageData track by $index">
+							<div  ng-repeat="data in pageData track by $index">
                             <div class="block block-themed">
                                 <div class="block-header bg-city-dark">
-                                    <a href="#{{current_user}}/home/{{bookIsbn}}/{{data.edition}}/{{data.pagenumber}}/details"><h3 class="block-title">Page number {{data.pagenumber}}</h3></a>
+                                    <a href="#{{current_user}}/home/{{bookIsbn}}/{{data.edition}}/{{data.pagenumber}}/details"><h3 class="block-title">Section {{data.pagenumber}}</h3></a>
                                 </div>
                             </div>
                         </div>
