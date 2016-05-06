@@ -5,7 +5,6 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
     $rootScope.current_user = "";
     $rootScope.show=false;
     $rootScope.done=false;
-    $rootScope.admin=false;
     // localStorage.setItem("name",$rootScope.current_user);
     // localStorage.setItem("auth",$rootScope.authenticated);
 
