@@ -41,7 +41,7 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
         templateUrl: 'details.html'
       }) 
        .when('/:name/home/:bookIsbn/:edition/pages', {
-    	templateUrl: 'serway.html',
+    	templateUrl: 'rfids.html',
     	controller: 'pageController'
       })
        .when('/:name/aboutus', {
