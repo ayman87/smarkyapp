@@ -16,7 +16,6 @@ var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,
         $rootScope.show=false;
         $rootScope.done=false;
         $rootScope.admin=false;
-        $rootScope.done=false;
         localStorage.setItem("name",$rootScope.current_user);
         localStorage.setItem("auth",$rootScope.authenticated);
         $location.path('/');
@@ -539,6 +538,7 @@ app.controller('authController', function($scope,$http,$rootScope,$location){
                 $location.path($rootScope.current_user+'/home');
             }
             else{
+                $rootScope.admin=false;
                 $rootScope.authenticated = true;
                 $rootScope.current_user = data.user.name; 
                 localStorage.setItem("name",$rootScope.current_user);

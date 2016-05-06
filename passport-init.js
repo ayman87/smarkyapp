@@ -26,7 +26,7 @@ module.exports = function(passport){
         function(req, email, password, done) { 
             // check in db if a user with username exists or not
             User.findOne(email,function(err, isNotavailable, user) {
-                    console.log("user ta7t");
+                    
                     // console.log(user.rows[0].name);
                     // In case of any error, return using the done method
                     if (err)
