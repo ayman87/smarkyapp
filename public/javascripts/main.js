@@ -1,4 +1,4 @@
-var app = angular.module('task3app', ['ngRoute']).run(function($rootScope,$http,$location){
+var app = angular.module('main', ['ngRoute']).run(function($rootScope,$http,$location){
 
 
     $rootScope.authenticated = false ;

@@ -60,7 +60,7 @@ module.exports = function(passport){
         function(req, email, password, done) {
 
             process.nextTick(function(callback) {
-            // find a user in mongo with provided username
+            // find a user in postgresql with provided username
             User.findOne(email, function(err, isNotAvailable, user) {
                 // In case of any error, return using the done method
                 if (err){
