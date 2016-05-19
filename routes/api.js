@@ -502,7 +502,7 @@ router.post('/testp/:bookIsbn/:edition', isAuthenticated, function(req, res) {
 
 
     // Grab data from http request
-    var data = {section: req.body.pagenumber};
+    var data = {section: req.body.rfid};
     // Get a Postgres client from the connection pool
     pg.connect(connectionString, function(err, client, done) {
         // Handle connection errors
@@ -512,7 +512,7 @@ router.post('/testp/:bookIsbn/:edition', isAuthenticated, function(req, res) {
           return res.status(500).send(json({ success: false, data: err}));
         }
         // SQL Query > Update Data
-        client.query("Insert into rfids (pagenumber,edition,isbn,updatedat,createdat) values ($1,$2,$3,clock_timestamp(),clock_timestamp()) ;", [data.pagenumber,edition,isbn]);
+        client.query("Insert into rfids (pagenumber,edition,isbn,updatedat,createdat) values ($1,$2,$3,clock_timestamp(),clock_timestamp()) ;", [data.rfid,edition,isbn]);
 
         // SQL Query > Select Data
         var query = client.query("SELECT * FROM rfids WHERE isbn=($1) and edition=($2) ORDER BY id ASC;",[isbn,edition]);
