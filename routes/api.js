@@ -4,7 +4,7 @@ var path = require('path');
 var pg = require('pg');
 var connectionString = process.env.DATABASE_URL || " postgres://gibhvqdyyuudcx:ZEloXSWrMEUpuUCa3e1QKb8IrC@ec2-23-21-42-29.compute-1.amazonaws.com:5432/dfr3e9sb0p3mu";
 
-// var sequelize = new Sequelize('postgres://localhost:5432/nfcbookdb');
+//var connectionString = process.env.DATABASE_URL ||'postgres://localhost:5432/nfcbookdb';
 
 
 //Used for routes that must be authenticated.

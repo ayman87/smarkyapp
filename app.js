@@ -36,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-//// Initialize Passport
+//Initialize Passport
 var initPassport = require('./passport-init');
 initPassport(passport);
 
