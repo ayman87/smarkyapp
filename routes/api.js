@@ -515,7 +515,7 @@ router.post('/testp/:bookIsbn/:edition', isAuthenticated, function(req, res) {
         client.query("Insert into rfids (pagenumber,edition,isbn,updatedat,createdat) values ($1,$2,$3,clock_timestamp(),clock_timestamp()) ;", [data.rfid,edition,isbn]);
 
         // SQL Query > Select Data
-        var query = client.query("SELECT * FROM WHERE isbn=($1) and edition=($2) ORDER BY id ASC;",[isbn,edition]);
+        var query = client.query("SELECT * FROM rfids WHERE isbn=($1) and edition=($2) ORDER BY id ASC;",[isbn,edition]);
 
         // Stream results back one row at a time
         query.on('row', function(row) {
