@@ -456,7 +456,7 @@ $(document).ready(function() {
         });
 
 
-    $scope.create = function(){
+    $scope.createp = function(){
     $http.post('api/testp/'+ $scope.bookIsbn+'/'+$scope.edition, {"rfid ": $scope.rfid})
     .success(function(data) {
         $scope.pageData = data;
