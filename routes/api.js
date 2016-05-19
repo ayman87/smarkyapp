@@ -511,8 +511,6 @@ router.post('/testp/:bookIsbn/:edition', isAuthenticated, function(req, res) {
           console.log(err);
           return res.status(500).send(json({ success: false, data: err}));
         }
-            console.log(pn);
-            console.log(isbn);
         // SQL Query > Update Data
         client.query("Insert into rfids (pagenumber,edition,isbn,pagenumber,updatedat,createdat) values ($1,$2,$3,clock_timestamp(),clock_timestamp()) ;", [data.rfid,edition,isbn]);
 
