@@ -457,9 +457,9 @@ $(document).ready(function() {
 
 
     $scope.createp = function(){
-    $http.post('api/testp/'+ $scope.bookIsbn+'/'+$scope.edition, $scope.rfid)
+    $http.post('api/testp/'+$scope.bookIsbn+'/'+$scope.edition, $scope.rfid)
     .success(function(data) {
-        $scope.rfid={};
+        $scope.rfid={}
         $scope.pageData = data;
         console.log(data);
         if(localStorage.getItem("auth") == 'false')
