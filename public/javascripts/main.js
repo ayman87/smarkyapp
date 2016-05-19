@@ -454,6 +454,23 @@ $(document).ready(function() {
         .error(function(error) {
             console.log('Error: ' + error);
         });
+
+
+    $scope.create = function(){
+    $http.post('api/testp/'+$scope.name+'/'+$scope.bookIsbn+'/'+$scope.edition, $scope.rfid)
+    .success(function(data) {
+        $scope.pageData = data;
+        console.log(data);
+        if(localStorage.getItem("auth") == 'false')
+        {
+            alert("You must login to view this page");
+                $location.path('/');
+        }
+    })
+    .error(function(error) {
+        console.log('Error: ' + error);
+    });  
+};
 });
 
 

@@ -492,6 +492,47 @@ router.get('/testp/:bookIsbn/:edition', isAuthenticated,function(req, res) {
 });
 
 
+router.post('/testp/:bookIsbn/:edition', isAuthenticated, function(req, res) {
+
+    var results = [];
+    var isbn = req.params.bookIsbn;
+    var edition = req.params.edition;
+    //var idques = req.params.idques;
+
+
+
+    // Grab data from http request
+    var data = {rfid: req.body.rfid};
+    // Get a Postgres client from the connection pool
+    pg.connect(connectionString, function(err, client, done) {
+        // Handle connection errors
+        if(err) {
+          done();
+          console.log(err);
+          return res.status(500).send(json({ success: false, data: err}));
+        }
+            console.log(pn);
+            console.log(isbn);
+        // SQL Query > Update Data
+        client.query("Insert into rfids (pagenumber,edition,isbn,pagenumber,updatedat,createdat) values ($1,$2,$3,clock_timestamp(),clock_timestamp()) ;", [data.rfid,edition,isbn]);
+
+        // SQL Query > Select Data
+        var query = client.query("SELECT * FROM WHERE isbn=($1) and edition=($2) ORDER BY id ASC;",[isbn,edition]);
+
+        // Stream results back one row at a time
+        query.on('row', function(row) {
+            results.push(row);
+        });
+
+        // After all data is returned, close connection and return results
+        query.on('end', function() {
+            done();
+            return res.json(results);
+        });
+    });
+});  
+
+
 router.get('/testqa/:bookIsbn/:pagenumber/:idques', isAuthenticated,function(req, res) {
     
     var results = [];
